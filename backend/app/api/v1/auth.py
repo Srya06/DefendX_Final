@@ -5,6 +5,7 @@ from app.models.user import User, UserCredential, Session as DBSession, AuditLog
 from app.schemas.user import LoginRequest, ChangePasswordRequest, CurrentUserResponse
 from app.core.security import verify_password, get_password_hash, generate_session_identifier
 from app.api.dependencies import get_current_user, get_current_active_user, AUTH_COOKIE_NAME
+from app.core.config import settings
 from datetime import datetime, timedelta
 
 router = APIRouter()
@@ -57,7 +58,7 @@ def login(request_data: LoginRequest, response: Response, db: Session = Depends(
         value=session_id,
         httponly=True,
         samesite="lax",
-        secure=False, # Set True for production https
+        secure=settings.ENVIRONMENT == "production",
         max_age=86400
     )
     return {"status": "ok", "must_change_password": user.must_change_password}

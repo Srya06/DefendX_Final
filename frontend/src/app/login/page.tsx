@@ -46,8 +46,9 @@ export default function LoginPage() {
         
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-300">User ID</label>
+            <label htmlFor="login-userid" className="block text-sm font-medium text-gray-300">User ID</label>
             <input
+              id="login-userid"
               type="text"
               className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={username}
@@ -56,8 +57,9 @@ export default function LoginPage() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300">Password</label>
+            <label htmlFor="login-password" className="block text-sm font-medium text-gray-300">Password</label>
             <input
+              id="login-password"
               type="password"
               className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={password}
