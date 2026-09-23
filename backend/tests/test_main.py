@@ -7,8 +7,3 @@ def test_health_check():
     response = client.get("/api/v1/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok", "service": "DEFEND-X API"}
-
-def test_auth_not_implemented():
-    response = client.get("/api/v1/auth")
-    assert response.status_code == 200
-    assert response.json() == {"status": "Not Implemented - Phase 2"}

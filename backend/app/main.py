@@ -1,4 +1,5 @@
 from fastapi import FastAPI, APIRouter
+from app.api.v1 import auth, admin, profile
 
 app = FastAPI(title="DEFEND-X API", version="1.0.0")
 
@@ -8,15 +9,12 @@ api_router = APIRouter(prefix="/api/v1")
 def health_check():
     return {"status": "ok", "service": "DEFEND-X API"}
 
-# Placeholder routers to define namespace architecture
-@api_router.get("/auth")
-def auth_placeholder():
-    return {"status": "Not Implemented - Phase 2"}
+# Include new real routers
+api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
+api_router.include_router(admin.router, prefix="/admin", tags=["admin"])
+api_router.include_router(profile.router, prefix="/profile", tags=["profile"])
 
-@api_router.get("/profile")
-def profile_placeholder():
-    return {"status": "Not Implemented - Phase 2"}
-
+# Placeholders for Phase 3+
 @api_router.get("/recruitment")
 def recruitment_placeholder():
     return {"status": "Not Implemented - Phase 2"}
