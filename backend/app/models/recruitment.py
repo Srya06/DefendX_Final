@@ -43,6 +43,9 @@ class RawDocument(Base):
     storage_location = Column(String, nullable=False)
     extraction_status = Column(String, default=ExtractionStatus.PENDING.value)
     page_count = Column(Integer, nullable=True)
+    extraction_method = Column(String, default="TEXT")
+    parser_version = Column(String, default="1.0")
+    language = Column(String, default="en")
 
     source = relationship("SourceRegistry", back_populates="documents")
 
@@ -100,8 +103,11 @@ class RecruitmentNotification(Base):
 
 # Provenance Mixin for Structured Details
 class ProvenanceMixin:
-    page_number = Column(Integer, nullable=True)
+    page_start = Column(Integer, nullable=True)
+    page_end = Column(Integer, nullable=True)
     source_url = Column(String, nullable=True)
+    content_hash = Column(String, nullable=True)
+    extraction_method = Column(String, nullable=True)
 
 
 class EligibilityRequirement(Base, ProvenanceMixin):

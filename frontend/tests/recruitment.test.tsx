@@ -28,7 +28,7 @@ const mockDetails = {
       id: 'ps1',
       text_content: 'Height 157cm',
       document_id: 'doc-navy-123',
-      page_number: 14,
+      page_start: 14,
       source_url: 'https://joinindiannavy.gov.in/official.pdf'
     }
   ],

@@ -4,8 +4,11 @@ from datetime import datetime
 
 class ProvenanceBase(BaseModel):
     document_id: Optional[str] = None
-    page_number: Optional[int] = None
+    page_start: Optional[int] = None
+    page_end: Optional[int] = None
     source_url: Optional[str] = None
+    content_hash: Optional[str] = None
+    extraction_method: Optional[str] = None
 
 class ForceResponse(BaseModel):
     id: str

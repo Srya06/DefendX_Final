@@ -11,8 +11,6 @@ import os
 from app.core.config import settings
 
 def UUID_COL():
-    if settings.DATABASE_URL.startswith("postgres"):
-        return PGUUID(as_uuid=True)
     return String(36)
 
 class User(Base):

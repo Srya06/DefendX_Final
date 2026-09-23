@@ -1,6 +1,6 @@
 from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.v1 import auth, admin, profile, recruitment
+from app.api.v1 import auth, admin, profile, recruitment, rag
 from app.core.config import settings
 
 app = FastAPI(title="DEFEND-X API", version="1.0.0")
@@ -43,13 +43,10 @@ def cv_placeholder():
 def dri_placeholder():
     return {"status": "Not Implemented - Phase 2"}
 
-@api_router.get("/agents")
-def agents_placeholder():
-    return {"status": "Not Implemented - Phase 2"}
+from app.api.v1 import agents
+api_router.include_router(agents.router, prefix="/agents", tags=["agents"])
 
-@api_router.get("/rag")
-def rag_placeholder():
-    return {"status": "Not Implemented - Phase 2"}
+api_router.include_router(rag.router, prefix="/rag", tags=["rag"])
 
 @api_router.get("/notifications")
 def notifications_placeholder():

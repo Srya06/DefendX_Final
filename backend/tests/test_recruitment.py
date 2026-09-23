@@ -82,7 +82,7 @@ def test_provenance_information(client, db):
         notification_id=n.id,
         text_content="Minimum height 157.5 cm",
         document_id="doc-123",
-        page_number=14,
+        page_start=14,
         source_url="https://afcat.cdac.in/official.pdf"
     )
     db.add(ps)
@@ -93,7 +93,7 @@ def test_provenance_information(client, db):
     data = res.json()
     assert len(data) == 1
     assert data[0]["text_content"] == "Minimum height 157.5 cm"
-    assert data[0]["page_number"] == 14
+    assert data[0]["page_start"] == 14
     assert data[0]["source_url"] == "https://afcat.cdac.in/official.pdf"
 
 def test_pipeline_validation_failure(db):

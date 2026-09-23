@@ -139,7 +139,7 @@ function Section({ title, items }: { title: string, items: any[] }) {
               <div className="mt-3 pt-3 border-t border-gray-800 text-xs text-gray-400 flex flex-col space-y-1">
                 <span className="font-semibold text-gray-300">Official Source</span>
                 {item.document_id && <span>Document ID: {item.document_id}</span>}
-                {item.page_number && <span>Page: {item.page_number}</span>}
+                {item.page_start && <span>Page: {item.page_start}</span>}
                 <a href={item.source_url} target="_blank" rel="noreferrer" className="text-blue-500 hover:underline">
                   [View Source]
                 </a>
