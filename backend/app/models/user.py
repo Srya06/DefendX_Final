@@ -28,6 +28,7 @@ class User(Base):
     credential = relationship("UserCredential", back_populates="user", uselist=False)
     profile = relationship("Profile", back_populates="user", uselist=False)
     sessions = relationship("Session", back_populates="user")
+    fitness_assessments = relationship("FitnessAssessment", back_populates="user")
 
 
 class UserCredential(Base):

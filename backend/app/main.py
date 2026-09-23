@@ -1,6 +1,6 @@
 from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.v1 import auth, admin, profile, recruitment, rag
+from app.api.v1 import auth, admin, profile, recruitment, rag, fitness
 from app.core.config import settings
 
 app = FastAPI(title="DEFEND-X API", version="1.0.0")
@@ -23,6 +23,7 @@ def health_check():
 api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
 api_router.include_router(admin.router, prefix="/admin", tags=["admin"])
 api_router.include_router(profile.router, prefix="/profile", tags=["profile"])
+api_router.include_router(fitness.router, prefix="/fitness", tags=["fitness"])
 
 # Placeholders for Phase 3+
 api_router.include_router(recruitment.router, prefix="/recruitment", tags=["recruitment"])

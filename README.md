@@ -22,3 +22,23 @@ The frontend captures live video via the device camera, runs browser-compatible 
 
 ## Environment Setup
 Copy `.env.example` to `.env` and fill in the required variables for your local development environment.
+
+## Phase 7: Live Computer Vision Fitness Assessment
+
+DEFEND-X includes a browser-based computer vision fitness tracker for push-ups and squats.
+
+* **Camera Permissions**: The browser will request camera access upon clicking "Start Assessment". If denied, the user must manually re-enable it in browser settings.
+* **Supported Workflow**: Go to Dashboard -> Fitness Assessment -> Select Exercise -> Start Camera -> Perform Exercise -> Stop -> Save Result.
+* **Browser Requirements**: A modern browser (Chrome, Safari, Firefox, Edge) with WebRTC (getUserMedia) and WebAssembly support.
+* **Local Development**: Run "npm run dev". Ensure the .task model is in "public/models/".
+* **Privacy Behavior**: Video is processed 100% locally in the browser. DEFEND-X does not record, upload, or store raw video frames. Only mathematical metrics (rep counts, angles, scores) are saved.
+* **Fitness API Endpoints**:
+  * POST /api/v1/fitness/assessments: Save assessment.
+  * GET /api/v1/fitness/assessments: Fetch own history.
+* **Testing Instructions**:
+  * "pytest tests/test_fitness.py" for backend API authorization.
+  * "vitest run" for frontend geometry calculations.
+* **Limitations**: 
+  * Not an official military-standard assessment.
+  * Heavily dependent on good lighting and camera placement.
+  * Reps will not count if full body (for squats) or upper body (for pushups) isn't clearly visible to the AI model.

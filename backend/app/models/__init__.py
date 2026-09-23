@@ -4,3 +4,4 @@ from app.models.recruitment import (
     RecruitmentNotification, EligibilityRequirement, PhysicalStandard, 
     MedicalStandard, SelectionStage, ImportantDate, Vacancy
 )
+from app.models.fitness import FitnessAssessment
