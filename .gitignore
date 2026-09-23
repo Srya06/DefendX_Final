@@ -1,0 +1,55 @@
+# Environments
+.env
+.env.*
+!.env.example
+.venv
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Credentials
+*credentials.json
+*password*
+*.pem
+*.key
+*.pkcs12
+
+# Node/Frontend
+node_modules/
+.next/
+out/
+build/
+dist/
+.npm/
+
+# Python/Backend
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+instance/
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# DB/Data
+*.sqlite3
+*.db
+dump.rdb
+data/
+neo4j/data/
+local_models/
+
+# Logs
+*.log
+logs/
